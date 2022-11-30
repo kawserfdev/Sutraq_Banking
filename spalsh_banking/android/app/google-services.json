@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "441377699260",
+    "project_id": "splash-banking",
+    "storage_bucket": "splash-banking.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:441377699260:android:d65c6bef3e7ff6df99a7b9",
+        "android_client_info": {
+          "package_name": "com.example.spalsh_banking"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "441377699260-9ejcr09fkvppdjpnivm06bs5ogs6hhs9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.spalsh_banking",
+            "certificate_hash": "79d9db5b0106bf4f4444f4bb75b375c0dd240266"
+          }
+        },
+        {
+          "client_id": "441377699260-6qjdeleio32ts1voq81jvvltdcuumfci.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRZ7sGJhSf71wFzyiO5aR925hEmIpzPrE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "441377699260-6qjdeleio32ts1voq81jvvltdcuumfci.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
