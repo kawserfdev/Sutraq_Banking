@@ -1,14 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:spalsh_banking/Ui/Home/Card/Cards.dart';
 import 'package:spalsh_banking/Ui/Home/Dashbord/Dashboard.dart';
 import 'package:spalsh_banking/Ui/Home/Settings/Settings.dart';
 import 'package:spalsh_banking/Ui/Home/Wallets/Wallet.dart';
-
 import 'Wallets/FoundWallet/Fount_wallet2.dart';
 
 class BottomNavController extends StatefulWidget {
-  const BottomNavController({super.key});
-
   @override
   State<BottomNavController> createState() => _BottomNavControllerState();
 }

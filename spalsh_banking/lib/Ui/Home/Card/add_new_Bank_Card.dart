@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:spalsh_banking/Const/Style/FontStyle.dart';
-import 'package:spalsh_banking/Ui/Home/Card/add_card.dart';
+import 'package:spalsh_banking/Ui/Home/Card/add_new_account.dart';
 import '../../../Const/AppString.dart';
 import '../../../Const/appColor.dart';
 

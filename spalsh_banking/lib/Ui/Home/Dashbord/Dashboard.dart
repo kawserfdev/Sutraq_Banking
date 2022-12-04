@@ -1,5 +1,6 @@
-import 'dart:html';
 
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:spalsh_banking/Const/AppString.dart';
 import 'package:spalsh_banking/Const/Style/FontStyle.dart';
@@ -8,12 +9,10 @@ import 'package:spalsh_banking/Ui/Home/Dashbord/DashBordPopUp/FoundWallet_popUp.
 import 'package:spalsh_banking/Ui/Home/Dashbord/DashBordPopUp/sendmoney_popUp.dart';
 import 'package:spalsh_banking/Ui/Home/Dashbord/Notifications.dart';
 import 'package:spalsh_banking/Ui/Home/Dashbord/Transactions_History.dart';
-import 'package:spalsh_banking/Ui/Home/Wallets/SendMoney.dart/sendMoney_Bank/Bank_Transfer.dart';
-
-import '../Wallets/Wallet.dart';
 import 'DashBordPopUp/Withdrow_popUp.dart';
 
 class Dashboard_screen extends StatefulWidget {
+
   @override
   State<Dashboard_screen> createState() => _Dashboard_screenState();
 }
@@ -49,7 +48,7 @@ class _Dashboard_screenState extends State<Dashboard_screen> {
                     ),
                   ),
                   title:
-                      Text(AppString.titlehello, style: FontStyle.b_22ffstyleC),
+                      Text(FirebaseAuth.instance.currentUser!.displayName.toString(),style: FontStyle.b_17styleC,),
                   subtitle: Padding(
                     padding: const EdgeInsets.only(top: 5.0),
                     child: Text(

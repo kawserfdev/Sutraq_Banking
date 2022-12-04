@@ -7,9 +7,13 @@ import 'package:spalsh_banking/Ui/Home/Card/add_new_Bank_Card.dart';
 
 import 'Cards.dart';
 
-class Add_Card extends StatelessWidget {
-  const Add_Card({super.key});
+class Add_Card extends StatefulWidget {
+  @override
+  State<Add_Card> createState() => _Add_CardState();
+}
 
+class _Add_CardState extends State<Add_Card> {
+  var selected = "Choose Currency";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,17 +63,19 @@ class Add_Card extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8),
-                      child: Text(AppString.choose_Currency),
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.arrow_downward,
-                        color: AppColor.green,
-                      ),
-                    ),
+                    Text(selected),
+                    DropdownButton(
+                        iconSize: 50,
+                        items: [
+                          DropdownMenuItem(value: 'BDT', child: Text('BDT')),
+                          DropdownMenuItem(
+                              value: 'US Doler', child: Text('US Doler')),
+                        ],
+                        onChanged: (value) {
+                          setState(() {
+                            selected = value!;
+                          });
+                        })
                   ],
                 ),
               ),

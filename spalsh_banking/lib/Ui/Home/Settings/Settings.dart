@@ -1,14 +1,18 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:spalsh_banking/Const/AppString.dart';
 import 'package:spalsh_banking/Const/Style/FontStyle.dart';
 import 'package:spalsh_banking/Const/appColor.dart';
 import 'package:flutter_switch/flutter_switch.dart';
+import 'package:spalsh_banking/Helper/auth_helper.dart';
 import 'package:spalsh_banking/Ui/Home/Settings/Bank_Accounts.dart';
 import 'package:spalsh_banking/Ui/Home/Settings/Change_Password.dart';
 import 'package:spalsh_banking/Ui/Home/Settings/Change_Pin.dart';
 import 'package:spalsh_banking/Ui/Home/Settings/Credit_Debit_cards.dart';
 import 'package:spalsh_banking/Ui/Home/Settings/Refer_Friend.dart';
+import 'package:spalsh_banking/Ui/Login/login.dart';
 
 class Settings_screen extends StatefulWidget {
   const Settings_screen({super.key});
@@ -20,6 +24,8 @@ class Settings_screen extends StatefulWidget {
 class _Settings_screenState extends State<Settings_screen> {
   bool status = false;
   var size, height, width;
+
+  final Aouth_Helper _auth = Aouth_Helper();
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +62,7 @@ class _Settings_screenState extends State<Settings_screen> {
                     ),
                   ),
                   title:
-                      Text(AppString.titlehello, style: FontStyle.b_22ffstyleC),
+                      Text(FirebaseAuth.instance.currentUser!.displayName.toString(),style: FontStyle.b_17styleC,),
                   subtitle: Padding(
                     padding: const EdgeInsets.only(top: 5.0),
                     child: Text(
@@ -382,6 +388,29 @@ class _Settings_screenState extends State<Settings_screen> {
                               ),
                               Divider(
                                 height: 10,
+                              ),
+                            ],
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              TextButton(
+                                onPressed: () async {
+                                  await _auth.signOut().then((result) {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                Login_Screen()));
+                                  });
+                                },
+                                child: Text(
+                                  "Log Out",
+                                  style: FontStyle.b_15styledarkblue,
+                                ),
+                              ),
+                              Divider(
+                                height: 20,
                               )
                             ],
                           ),

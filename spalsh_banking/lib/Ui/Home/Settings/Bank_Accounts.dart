@@ -6,8 +6,21 @@ import 'package:spalsh_banking/Ui/Home/Wallets/add_new_bankAccount.dart';
 import '../../../Const/AppString.dart';
 import '../../../Const/appColor.dart';
 
-class Bank_Accounts extends StatelessWidget {
+class Bank_Accounts extends StatefulWidget {
+  @override
+  State<Bank_Accounts> createState() => _Bank_AccountsState();
+}
+
+class _Bank_AccountsState extends State<Bank_Accounts> {
   var size, height, width;
+
+  int _rValue = 0;
+  void method(int value) {
+    setState(() {
+      _rValue = value;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
@@ -87,12 +100,13 @@ class Bank_Accounts extends StatelessWidget {
                                     ))
                               ],
                             ),
-                            trailing: IconButton(
-                              onPressed: () {},
-                              icon: Icon(
-                                Icons.check_circle_outline,
-                                color: AppColor.green,
-                              ),
+                            trailing: Radio(
+                              value: 1,
+                              groupValue: _rValue,
+                              onChanged: (value) {
+                                method(value!);
+                              },
+                              activeColor: AppColor.green,
                             )),
                         Divider(),
                         ListTile(
@@ -126,12 +140,13 @@ class Bank_Accounts extends StatelessWidget {
                                     ))
                               ],
                             ),
-                            trailing: IconButton(
-                              onPressed: () {},
-                              icon: Icon(
-                                Icons.check_circle_outline,
-                                color: AppColor.green,
-                              ),
+                            trailing: Radio(
+                              value: 2,
+                              groupValue: _rValue,
+                              onChanged: (value) {
+                                method(value!);
+                              },
+                              activeColor: AppColor.green,
                             )),
                         Divider(),
                         ListTile(
@@ -165,12 +180,13 @@ class Bank_Accounts extends StatelessWidget {
                                     ))
                               ],
                             ),
-                            trailing: IconButton(
-                              onPressed: () {},
-                              icon: Icon(
-                                Icons.check_circle_outline,
-                                color: AppColor.green,
-                              ),
+                            trailing: Radio(
+                              value: 3,
+                              groupValue: _rValue,
+                              onChanged: (value) {
+                                method(value!);
+                              },
+                              activeColor: AppColor.green,
                             )),
                         SizedBox(
                           height: 15,

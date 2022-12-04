@@ -4,7 +4,7 @@ import 'package:spalsh_banking/Const/Style/FontStyle.dart';
 import 'package:spalsh_banking/Const/appColor.dart';
 import 'package:spalsh_banking/Ui/Home/Dashbord/Transactions_History.dart';
 
-import 'add_card.dart';
+import 'add_new_account.dart';
 
 class My_Cards extends StatefulWidget {
   const My_Cards({super.key});

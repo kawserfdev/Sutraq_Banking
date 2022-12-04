@@ -2,6 +2,7 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:spalsh_banking/Const/appColor.dart';
 import 'package:spalsh_banking/Ui/Login/Idia.dart';
+import 'package:spalsh_banking/Ui/Login/Sign_up.dart';
 import '../Login/login.dart';
 
 class Onbording_screen extends StatefulWidget {
@@ -125,7 +126,7 @@ class _Onbording_screenState extends State<Onbording_screen> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => Login_Screen()),
+                                    builder: (context) => Sign_up()),
                               );
                             } else {
                               _currentIndex++;
@@ -133,7 +134,7 @@ class _Onbording_screenState extends State<Onbording_screen> {
                             }
                           },
                           child:
-                              _currentIndex == 2 ? Text('Login') : Text('Next'),
+                              _currentIndex == 2 ? Text('Sign UP') : Text('Next'),
                           style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.all(
                                 Color.fromARGB(255, 0, 5, 0)),
@@ -144,10 +145,16 @@ class _Onbording_screenState extends State<Onbording_screen> {
                     SizedBox(
                       height: 20,
                     ),
-                    Text(
-                      'TRY SUTRAQ',
-                      style: TextStyle(color: AppColor.backHoneyDew),
-                    )
+                    TextButton(onPressed: (){
+                      Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Login_Screen()),
+                              );
+                    }, child: Text(
+                      'I already have a Sutraq account?',
+                      style: TextStyle(color: AppColor.black),
+                    ))
                   ],
                 ),
               ),

@@ -375,7 +375,7 @@ class _My_WaletsState extends State<My_Walets> {
                                           onPressed: () => Navigator.of(context)
                                               .push(MaterialPageRoute(
                                                   builder: (context) =>
-                                                      Bank_Tramsfer())),
+                                                      Transaction_History())),
                                           child: Text(AppString.view,
                                               style: FontStyle.n_stylegreen))
                                     ],

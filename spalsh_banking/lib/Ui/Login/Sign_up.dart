@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:spalsh_banking/Const/AppString.dart';
 import 'package:spalsh_banking/Const/Style/FontStyle.dart';
-import 'package:spalsh_banking/Const/appColor.dart';
-import 'package:spalsh_banking/Ui/Login/Forget_password.dart';
-import 'package:spalsh_banking/Ui/Login/Idia.dart';
-import 'package:spalsh_banking/Ui/Login/Sign_up.dart';
-import '../../Helper/auth_helper.dart';
-import '../Home/BottomNavController.dart';
+import 'package:spalsh_banking/Helper/auth_helper.dart';
+import 'package:spalsh_banking/Ui/Login/Sign_In_With_phoneNumber.dart';
+import 'package:spalsh_banking/Ui/Login/login.dart';
+import '../../Const/AppString.dart';
+import '../../Const/appColor.dart';
 
-class Login_Screen extends StatelessWidget {
+class Sign_up extends StatelessWidget {
+  var size, height, width;
+
   TextEditingController _email = TextEditingController();
   TextEditingController _pass = TextEditingController();
 
-  var size, height, width;
   @override
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
@@ -36,7 +35,7 @@ class Login_Screen extends StatelessWidget {
               height: 20,
             ),
             Text(
-              AppString.logintext,
+              'Start Sutrq',
               style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
             ),
             SizedBox(
@@ -49,6 +48,10 @@ class Login_Screen extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Text(AppString.enteremail),
+                SizedBox(
+                  height: 10,
+                ),
                 TextField(
                   controller: _email,
                   decoration: const InputDecoration(
@@ -59,6 +62,10 @@ class Login_Screen extends StatelessWidget {
                 ),
                 SizedBox(
                   height: 20,
+                ),
+                Text(AppString.enterpassword),
+                SizedBox(
+                  height: 10,
                 ),
                 TextField(
                   controller: _pass,
@@ -71,66 +78,70 @@ class Login_Screen extends StatelessWidget {
                 SizedBox(
                   height: 10,
                 ),
-                Align(
-                  alignment: Alignment.bottomRight,
-                  child: TextButton(
-                    onPressed: () => Navigator.of(context).push(
-                        MaterialPageRoute(
-                            builder: (context) => Forget_password())),
-                    child: Text(
-                      AppString.forget_password,
-                      style: TextStyle(color: AppColor.green),
-                    ),
-                  ),
-                ),
                 InkWell(
                   onTap: () {
                     final UserEmail = _email.text;
                     final UserPass = _pass.text;
                     var obj = Aouth_Helper();
-                    obj.signIn(UserEmail, UserPass, context);
+                    obj.signUp(UserEmail, UserPass, context);
                   },
                   child: Container(
                     height: 50,
                     color: AppColor.green,
                     child: Center(
                         child: Text(
-                      AppString.login,
+                      "Sign UP",
                       style: FontStyle.b_17ffstyleC,
                     )),
                   ),
                 ),
+                Align(
+                  alignment: Alignment.topCenter,
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Login_Screen()),
+                      );
+                    },
+                    child: Text(
+                      'Already created account? Login',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Align(
+                  alignment: Alignment.topCenter,
+                  child: TextButton(
+                    onPressed: () => Aouth_Helper().signInWithGoogle(context),
+                    child: Text(
+                      'SignIn With Google',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Align(
+                  alignment: Alignment.topCenter,
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Sign_Phone_Number()));
+                    },
+                    child: Text(
+                      'SignIn With PhoneNumber',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                  ),
+                ),
               ],
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            TextButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Sign_up()),
-                );
-              },
-              child: Text(
-                AppString.needaccount,
-                style: TextStyle(color: Colors.black),
-              ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Icon(
-              Icons.fingerprint,
-              size: height / 15,
-              color: AppColor.green,
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Text(
-              AppString.use_fingerprint,
-              style: TextStyle(color: AppColor.green),
             ),
           ],
         ),

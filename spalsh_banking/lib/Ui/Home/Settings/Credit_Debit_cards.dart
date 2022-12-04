@@ -9,8 +9,22 @@ import '../../../Const/appColor.dart';
 import '../Wallets/add_new_bankAccount.dart';
 import 'Settings.dart';
 
-class Credit_Debit_cards extends StatelessWidget {
+class Credit_Debit_cards extends StatefulWidget {
+  @override
+  State<Credit_Debit_cards> createState() => _Credit_Debit_cardsState();
+}
+
+class _Credit_Debit_cardsState extends State<Credit_Debit_cards> {
   var size, height, width;
+
+  int _rValue = 0;
+
+  void method(int value) {
+    setState(() {
+      _rValue = value;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
@@ -57,12 +71,13 @@ class Credit_Debit_cards extends StatelessWidget {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              IconButton(
-                                onPressed: () {},
-                                icon: Icon(
-                                  Icons.check_circle_outline,
-                                  color: AppColor.green,
-                                ),
+                              Radio(
+                                value: 1,
+                                groupValue: _rValue,
+                                onChanged: (value) {
+                                  method(value!);
+                                },
+                                activeColor: AppColor.green,
                               ),
                               SizedBox(
                                 width: 10,
@@ -72,17 +87,14 @@ class Credit_Debit_cards extends StatelessWidget {
                           ),
                           Container(
                             height: height / 3.5,
-                            width: width / 2,
-                            child: Padding(
-                              padding: EdgeInsets.all(1),
-                              child: DecoratedBox(
-                                decoration: ShapeDecoration(
-                                  shape: RoundedRectangleBorder(),
-                                  image: DecorationImage(
-                                    fit: BoxFit.cover,
-                                    image: AssetImage(
-                                      AppString.images[2],
-                                    ),
+                            width: width / 1.5,
+                            child: DecoratedBox(
+                              decoration: ShapeDecoration(
+                                shape: RoundedRectangleBorder(),
+                                image: DecorationImage(
+                                  fit: BoxFit.cover,
+                                  image: AssetImage(
+                                    AppString.images[2],
                                   ),
                                 ),
                               ),
@@ -103,12 +115,13 @@ class Credit_Debit_cards extends StatelessWidget {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              IconButton(
-                                onPressed: () {},
-                                icon: Icon(
-                                  Icons.check_circle_outline,
-                                  color: AppColor.green,
-                                ),
+                              Radio(
+                                value: 2,
+                                groupValue: _rValue,
+                                onChanged: (value) {
+                                  method(value!);
+                                },
+                                activeColor: AppColor.green,
                               ),
                               SizedBox(
                                 width: 10,
@@ -121,7 +134,7 @@ class Credit_Debit_cards extends StatelessWidget {
                           ),
                           Container(
                             height: height / 3.5,
-                            width: width / 2,
+                            width: width / 1.5,
                             child: Padding(
                               padding: EdgeInsets.all(1),
                               child: DecoratedBox(
